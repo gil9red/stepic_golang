@@ -13,12 +13,13 @@ Sample Output:
 4 2
 */
 
-func test(x1, x2 *int) {
+// NOTE: need rename to "test"
+func testStep6(x1, x2 *int) {
 	*x1, *x2 = *x2, *x1
 	fmt.Println(*x1, *x2)
 }
 
 func main() {
 	a, b := 5, 4
-	test(&a, &b)
+	testStep6(&a, &b)
 }

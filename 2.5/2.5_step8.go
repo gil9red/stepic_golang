@@ -18,11 +18,11 @@ Sample Output:
 */
 
 func ToReversed(text string) string {
-	bs := []rune(text)
+	r := []rune(text)
 
-	reversed_bs := make([]rune, len(bs))
+	reversed_bs := make([]rune, len(r))
 	for i := 0; i < len(reversed_bs); i++ {
-		reversed_bs[i] = bs[len(reversed_bs)-i-1]
+		reversed_bs[i] = r[len(reversed_bs)-i-1]
 	}
 	return string(reversed_bs)
 }
@@ -30,7 +30,7 @@ func ToReversed(text string) string {
 func main() {
 	var text string
 	_, _ = fmt.Scan(&text)
-	//text := "12321"
+
 	reversed := ToReversed(text)
 
 	if text == reversed {

@@ -28,9 +28,9 @@ func main() {
 	text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 	text = strings.TrimSpace(text)
 
-	bs := []rune(text)
+	r := []rune(text)
 
-	if unicode.IsUpper(bs[0]) && strings.HasSuffix(text, ".") {
+	if unicode.IsUpper(r[0]) && strings.HasSuffix(text, ".") {
 		fmt.Println("Right")
 	} else {
 		fmt.Println("Wrong")

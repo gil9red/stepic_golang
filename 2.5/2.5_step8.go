@@ -18,11 +18,11 @@ Sample Output:
 */
 
 func ToReversed(text string) string {
-	r := []rune(text)
+	rs := []rune(text)
 
-	reversed_bs := make([]rune, len(r))
+	reversed_bs := make([]rune, len(rs))
 	for i := 0; i < len(reversed_bs); i++ {
-		reversed_bs[i] = r[len(reversed_bs)-i-1]
+		reversed_bs[i] = rs[len(reversed_bs)-i-1]
 	}
 	return string(reversed_bs)
 }

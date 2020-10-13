@@ -63,9 +63,7 @@ func main() {
 		}
 
 		for _, city := range cities {
-			if _, ok := cityPopulation[city]; ok {
-				delete(cityPopulation, city)
-			}
+			delete(cityPopulation, city)
 		}
 	}
 	fmt.Println(cityPopulation)

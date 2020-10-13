@@ -37,11 +37,11 @@ func main() {
 
 	fmt.Println()
 
-	if value, inMap := m[1]; inMap {
+	if value, ok := m[1]; ok {
 		fmt.Println("key: 1, value:", value) // 10
 	}
 
-	if value, inMap := m[404]; inMap {
+	if value, ok := m[404]; ok {
 		fmt.Println("key: 404, value:", value) // Условие не выполняется
 	}
 

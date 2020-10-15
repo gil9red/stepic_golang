@@ -76,7 +76,5 @@ func main() {
 		a := true
 		res := strconv.FormatBool(a)
 		fmt.Printf("%T %v", res, res) // string true
-
-		fmt.Println()
 	}
 }

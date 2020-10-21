@@ -29,7 +29,7 @@ Sample Output:
 func main() {
 	fn := func(num uint) uint {
 		numStr := strconv.FormatUint(uint64(num), 10)
-		rs := make([]rune, 0)
+		rs := make([]rune, 0, len(numStr))
 
 		for _, r := range numStr {
 			if r%2 == 0 {

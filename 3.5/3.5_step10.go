@@ -64,13 +64,13 @@ func main() {
 		// [row2_col1 row2_col2 row2_col3]
 
 		// Либо прочитать данные за один раз
-		data, err := r.ReadAll()
+		lines, err := r.ReadAll()
 		if err != nil {
 			// Когда мы читаем данные до конца файла io.EOF не возвращается, а служит сигналом к завершению чтения
 			panic(err)
 		}
 
-		for _, row := range data {
+		for _, row := range lines {
 			fmt.Println(row)
 		}
 		// [row3_col1 row3_col2 row3_col3]

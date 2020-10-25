@@ -42,8 +42,7 @@ func main() {
 		// префикса (prefix), за которым следует один или несколько отступов в соответствии с вложенностью:
 		data, err := json.MarshalIndent(s, "", "    ")
 		if err != nil {
-			fmt.Println(err)
-			return
+			panic(err)
 		}
 
 		fmt.Printf("%s\n", data)
@@ -67,8 +66,7 @@ func main() {
 
 		data := []byte(`{"Name":"John Connor","Age":35,"Status":true,"Values":[15,11,37]}`)
 		if err := json.Unmarshal(data, &s); err != nil {
-			fmt.Println(err)
-			return
+			panic(err)
 		}
 		fmt.Printf("%v\n", s)
 		// {John Connor 35 true [15 11 37]}
@@ -86,8 +84,7 @@ func main() {
 			}
 		`)
 		if err := json.Unmarshal(data, &s); err != nil {
-			fmt.Println(err)
-			return
+			panic(err)
 		}
 		fmt.Printf("%v\n", s)
 		// {John Connor 35 true [15 11 37]}

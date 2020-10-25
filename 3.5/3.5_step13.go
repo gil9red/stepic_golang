@@ -78,9 +78,9 @@ func main() {
 		}
 		defer f.Close()
 
-		data, _ := csv.NewReader(f).ReadAll()
-		if len(data) > 1 {
-			fmt.Println(data[4][2])
+		lines, _ := csv.NewReader(f).ReadAll()
+		if len(lines) > 1 {
+			fmt.Println(lines[4][2])
 		}
 	}
 }

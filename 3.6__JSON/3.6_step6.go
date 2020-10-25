@@ -77,10 +77,19 @@ type Result struct {
 }
 
 func main() {
+	var group Group
+
+	//if err := json.NewDecoder(os.Stdin).Decode(&group); err != nil {
+	//	panic(err)
+	//}
+	//
+	// OR:
+	//
 	//data, err := ioutil.ReadAll(os.Stdin)
 	//if err != nil {
 	//	panic(err)
 	//}
+
 	data := []byte(`
 		{
 			"ID":134,
@@ -110,7 +119,6 @@ func main() {
 	`)
 	//fmt.Println(string(data))
 
-	var group Group
 	if err := json.Unmarshal(data, &group); err != nil {
 		panic(err)
 	}

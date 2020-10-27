@@ -12,15 +12,19 @@ func main() {
 		post := now.AddDate(0, 0, -1)
 		future := now.AddDate(0, 0, 1)
 
+		var d time.Duration
+
 		// func Since(t Time) Duration
 		// вычисляет период между текущим моментом и заданным временем в прошлом
-		fmt.Println(time.Since(post).Round(time.Second))
-		// 24h0m0s
+		d = time.Since(post)
+		fmt.Println(d, d.Seconds(), d.Round(time.Second), d.Round(time.Second).Seconds(), d.Round(time.Second).Hours())
+		// 24h0m0.0080068s 86400.0080068 24h0m0s 86400 24
 
 		// func Until(t Time) Duration
 		// вычисляет период между текущим моментом и заданным временем в будущем
-		fmt.Println(time.Until(future).Round(time.Second))
-		// 24h0m0s
+		d = time.Until(future)
+		fmt.Println(d, d.Seconds(), d.Round(time.Second), d.Round(time.Second).Seconds(), d.Round(time.Second).Hours())
+		// 23h59m59.9919935s 86399.9919935 24h0m0s 86400 24
 
 		// func ParseDuration(s string) (Duration, error)
 		// преобразует строку в Duration с использованием аннотаций:

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -73,7 +72,7 @@ func main() {
 
 		data, _ := ioutil.ReadFile(f.Name())
 		text := string(data)
-		fmt.Printf("text (%d): %s\n", len(text), strconv.Quote(text))
+		fmt.Printf("text (%d): %q\n", len(text), text)
 		// data (30): "1 строка\n2 строка\n"
 
 		removeFile(f)

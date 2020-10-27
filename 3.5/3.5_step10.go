@@ -43,6 +43,8 @@ func main() {
 
 		data, _ := ioutil.ReadAll(buf)
 		fmt.Println(strconv.Quote(string(data)))
+		fmt.Printf("%q\n", data)
+		// "row1_col1,row1_col2,row1_col3\nrow2_col1,row2_col2,row2_col3\nrow3_col1,row3_col2,row3_col3\nrow4_col1,row4_col2,row4_col3\nrow5_col1,row5_col2,row5_col3\n"
 		// "row1_col1,row1_col2,row1_col3\nrow2_col1,row2_col2,row2_col3\nrow3_col1,row3_col2,row3_col3\nrow4_col1,row4_col2,row4_col3\nrow5_col1,row5_col2,row5_col3\n"
 
 		fmt.Println()

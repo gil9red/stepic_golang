@@ -39,8 +39,7 @@ func main() {
 	text = strings.TrimSpace(text)
 
 	//text = "12 мин. 13 сек."
-	////text = "12 мин. 3 сек."
-	//text = "71 мин. 18 сек."
+	//text = "71 мин. 8 сек."
 
 	re := regexp.MustCompile(`(\d+) мин\. (\d+) сек\.`)
 	items := re.FindStringSubmatch(text)
@@ -51,11 +50,5 @@ func main() {
 	minutes, _ := strconv.Atoi(items[1])
 	seconds, _ := strconv.Atoi(items[2])
 	d := time.Minute*time.Duration(minutes) + time.Second*time.Duration(seconds)
-	//timeD, err := time.Parse("4 мин. 5 сек.", text)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//
-	//d := time.Minute * time.Duration(timeD.Minute()) + time.Second * time.Duration(timeD.Second())
 	fmt.Println(startDate.Add(d).UTC().Format(time.UnixDate))
 }

@@ -22,27 +22,27 @@ import (
 не сделаете, то превысите предельное время работы.
 */
 
-func calculator(firstChan <-chan int, secondChan <-chan int, stopChan <-chan struct{}) <-chan int {
-	result := make(chan int)
-
-	go func() {
-		defer close(result)
-
-		select {
-		case value := <-firstChan:
-			result <- value * value
-		case value := <-secondChan:
-			result <- value * 3
-		case <-stopChan:
-			return
-		}
-	}()
-
-	return result
-}
-
 func main() {
 	fmt.Println("Started!")
+
+	calculator := func(firstChan <-chan int, secondChan <-chan int, stopChan <-chan struct{}) <-chan int {
+		result := make(chan int)
+
+		go func() {
+			defer close(result)
+
+			select {
+			case value := <-firstChan:
+				result <- value * value
+			case value := <-secondChan:
+				result <- value * 3
+			case <-stopChan:
+				return
+			}
+		}()
+
+		return result
+	}
 
 	firstChan := make(chan int)
 	secondChan := make(chan int)

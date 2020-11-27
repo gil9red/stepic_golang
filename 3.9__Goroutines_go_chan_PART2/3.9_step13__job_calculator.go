@@ -49,10 +49,11 @@ func main() {
 	stopChan := make(chan struct{})
 
 	go func() {
+		defer close(stopChan)
+
 		firstChan <- 10
 		firstChan <- 100
 		secondChan <- 10
-		stopChan <- struct{}{}
 	}()
 
 	for i := 0; i < 4; i++ {

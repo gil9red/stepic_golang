@@ -49,6 +49,8 @@ func main() {
 	stopChan := make(chan struct{})
 
 	go func() {
+		// NOTE: для повторного использования канала лучше не закрывать канал, а отправить в него
+		// done <- struct{}{}
 		defer close(stopChan)
 
 		firstChan <- 10

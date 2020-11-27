@@ -50,14 +50,27 @@ func main() {
 	done := make(chan struct{})
 
 	go func() {
-		defer close(done)
+		// NOTE: для повторного использования канала лучше не закрывать канал, а отправить в него
+		// done <- struct{}{}
+		//defer close(done)
 
 		for i := 1; i < 10; i++ {
 			arguments <- i
 		}
-	}()
 
+		done <- struct{}{}
+	}()
 	fmt.Println("Result:", <-calculator(arguments, done))
+	// Result: 45
+
+	go func() {
+		for i := 1; i < 5; i++ {
+			arguments <- i
+		}
+		done <- struct{}{}
+	}()
+	fmt.Println("Result:", <-calculator(arguments, done))
+	// Result: 10
 
 	fmt.Println("Finish!")
 }

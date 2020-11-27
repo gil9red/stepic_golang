@@ -50,18 +50,18 @@ func main() {
 
 	go func() {
 		firstChan <- 10
-	}()
-	fmt.Println("Result:", <-calculator(firstChan, secondChan, stopChan))
-
-	go func() {
+		firstChan <- 100
 		secondChan <- 10
-	}()
-	fmt.Println("Result:", <-calculator(firstChan, secondChan, stopChan))
-
-	go func() {
 		stopChan <- struct{}{}
 	}()
-	fmt.Println("Result:", <-calculator(firstChan, secondChan, stopChan))
+
+	for i := 0; i < 4; i++ {
+		fmt.Println("Result:", <-calculator(firstChan, secondChan, stopChan))
+	}
+	// Result: 100
+	// Result: 10000
+	// Result: 30
+	// Result: 0
 
 	fmt.Println("Finish!")
 }
